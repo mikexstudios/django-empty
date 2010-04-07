@@ -1,5 +1,5 @@
+NOTE: The following can also be done with the rename_app.sh script.
 Need to change 'app' to whatever your app name is in the following places:
-
 1. app/ dir.
 2. urls.py
 3. app/urls.py
