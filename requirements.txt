@@ -16,12 +16,12 @@ MySQL-python
 #So many awesome things in this app to simplify django dev:
 django-annoying
 
+#For easy database migrations!
+South
+
 #django-rpx-plus (depends on django-picklefield, automatically installed):
 #django-picklefield==0.1
 #-e git://github.com/mikexstudios/django-rpx-plus.git#egg=django_rpx_plus
-
-#For easy database migrations!
-#South
 
 #Messaging/work queue (depends on amqplib, anyjson, billiard, carrot, importlib,
 #and python-dateutil).
