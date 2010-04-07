@@ -20,12 +20,12 @@ urlpatterns = patterns('',
     #url(r'^accounts/$', 'django.views.generic.simple.redirect_to', 
     #                    {'url': '/accounts/profile/', 'permanent': False},
     #                    name='auth_home'),
-    #url(r'^accounts/profile/$', 'vote.views.edit_user_profile', name='edit_profile'),
-    #url(r'^accounts/logout/$', 'django.contrib.auth.views.logout', 
-    #                  {'template_name': 'django_rpx_plus/logged_out.html'}, 
-    #                  name='auth_logout'),
-    #url(r'^accounts/associate/delete/(\d+)/$', base.views.delete_associated_login, name='delete-associated-login'),
-    #(r'^accounts/', include('django_rpx_plus.urls')),
+    #url(r'^accounts/profile/$', 'app.views.edit_user_profile', name='edit_profile'),
+    url(r'^accounts/logout/$', 'django.contrib.auth.views.logout', 
+                      {'template_name': 'django_rpx_plus/logged_out.html'}, 
+                      name='auth_logout'),
+    #url(r'^accounts/associate/delete/(\d+)/$', app.views.delete_associated_login, name='delete-associated-login'),
+    (r'^accounts/', include('django_rpx_plus.urls')),
 
     #Temporary fix for serving static files in dev environment.
     #See: http://docs.djangoproject.com/en/dev/howto/static-files/

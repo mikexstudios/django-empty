@@ -102,7 +102,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'annoying', #django-annoying
     'south', #migrations
-    #'django_rpx_plus', 
+    'django_rpx_plus', 
     #'celery', #messaging queue
     'app', #make sure to rename this
 )
@@ -167,10 +167,10 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 # The realm is the subdomain of rpxnow.com that you signed up under. It handles 
 # your HTTP callback. (eg. http://mysite.rpxnow.com implies that RPXNOW_REALM  is
 # 'mysite'.
-#RPXNOW_REALM = ''
+RPXNOW_REALM = ''
 
 # (Optional)
-#RPX_TRUSTED_PROVIDERS = ''
+RPX_TRUSTED_PROVIDERS = ''
 
 # (Optional)
 # RPX requires a token_url to be passed to its APIs. The token_url is an
@@ -188,7 +188,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 # them to a page so that they can register on your site. The purpose is to 
 # let the user choose a username (the one that RPX returns isn't always suitable)
 # and confirm their email address (RPX doesn't always return the user's email).
-#REGISTER_URL = '/accounts/register/'
+REGISTER_URL = '/accounts/register/'
 
 
 #Import any local settings (ie. production environment) that will override

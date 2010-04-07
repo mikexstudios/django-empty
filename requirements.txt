@@ -21,7 +21,7 @@ South
 
 #django-rpx-plus (depends on django-picklefield, automatically installed):
 #django-picklefield==0.1
-#-e git://github.com/mikexstudios/django-rpx-plus.git#egg=django_rpx_plus
+-e git://github.com/mikexstudios/django-rpx-plus.git#egg=django_rpx_plus
 
 #Messaging/work queue (depends on amqplib, anyjson, billiard, carrot, importlib,
 #and python-dateutil).
