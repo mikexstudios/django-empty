@@ -1,237 +1,40 @@
 // This import applies a global reset to any page that imports this stylesheet.
 @import blueprint/reset.sass
 // To configure blueprint, edit the partials/base.sass file.
-//@import partials/base.sass
+@import partials/base.sass
 // Import all the default blueprint modules so that we can access their mixins.
 @import blueprint
 // Import the non-default scaffolding module.
-//@import blueprint/modules/scaffolding.sass
+@import blueprint/modules/scaffolding.sass
 
-//@import compass/utilities/general.sass
-//@import compass/utilities/text.sass
-@import compass/utilities/links.sass
-@import compass/utilities/lists.sass
-//@import compass/utilities/tables.sass
-//@import compass/layout.sass
+// To generate css equivalent to the blueprint css but with your configuration applied, uncomment:
+// +blueprint
 
-//@import blueprint/modules/form.sass
-//+blueprint-form
+//Recommended Blueprint configuration with scoping and semantic layout:
++blueprint-typography("body.bp")
++blueprint-scaffolding("body.bp")
+body.bp
+  +blueprint-utilities
+  +blueprint-debug
+  +blueprint-interaction
+  // Remove the scaffolding when you're ready to start doing visual design.
+  // Or leave it in if you're happy with how blueprint looks out-of-the-box
+form.bp
+  +blueprint-form
 
-@import rounded_corners.sass
-@import common.sass
-
-!blueprint_font_family = "Helvetica, Arial, Verdana, sans-serif"
-//!blueprint_font_family = "Georgia, Times, Times New Roman, sans-serif"
-+blueprint-typography
-
-//Global page css
-!content_width = 550px
-body
-  //Default font-size:
-  //font-family: Helvetica, Arial, Verdana, sans-serif
-  font-size: 1.1em
-  a, a:link, a:visited
-    +hover-link
-    color: #03c
-  .logo
-    font-family: Georgia, Times, Times New Roman, sans-serif
-    //font-style: italic
-  #errors
-    +error-style
-    font-size: 0.9em
-  #messages
-    +messages-style
+// Page layout can be done using mixins applied to your semantic classes and IDs:
+body.three-col
   #container
-    margin: 0 50px
-    min-width = !content_width
-  #header
-    font-family: Georgia, Times, Times New Roman, sans-serif
-    margin-top: 10px
-    margin-bottom: 10px
-    border-bottom: 1px solid #ccc
-    text-align: right
-    h1
-      margin-left: 5px
-      font-size: 1.2em
-      float: left
-      margin-bottom: 0
-      //Hackish method of correcting blueprint set line-height:
-      line-height: 1.5
-      a
-        color: #333
-        text-decoration: none
-        .supple
-          color: #555
-    ul#navigation
-      font-variant: small-caps
-      font-size: 1.2em
-      margin-bottom: 0
-      +inline-list
-      li
-        margin-left: 10px
-  #content
-    width = !content_width
-    margin: 0 auto
-  #footer
-    clear: both
-    //float: left
-    margin-top: 15px
-    margin-bottom: 10px
-    text-align: right
-    font-size: 0.6em
-    font-family: Georgia, Times, Times New Roman, sans-serif
-    color: #ccc
-    a
-      color: #ccc
-
-body#home, body#signup
-  h2#catchphrase
-    margin-top: 20px
-    font-family: Georgia, Times, Times New Roman, sans-serif
-    font-size: 2.4em
-    //letter-spacing: 0.03em
-    text-align: center
-    margin-bottom: 0
-  p#catchphrase-helper
-    display: block
-    padding-left: 20px
-    padding-right: 20px
-    text-align: center
-    color: #666
-    margin-bottom: 5px
-  #instructions
-    font-size: 1.5em
-    width: 85%
-    margin: 0 auto
-    //border: 2px solid #ccc
-    //+border-radius(10px)
-    //padding: 10px
-    ol
-      margin: 20px 0 30px 50px
-      li
-        margin-bottom: 0.4em
-        color: #999
-      li.first
-        color: #333
-        font-weight: bold
-  #rpx_embed 
-    display: block
-    margin: 0 auto
-  #closer
-    font-family: Georgia, Times, Times New Roman, sans-serif
-    font-size: 1.2em
-    text-align: center
-
-body#register
-  #welcome
-    h2
-      font-family: Georgia, Times, Times New Roman, sans-serif
-      font-size: 2.2em
-      margin-bottom: 0
-      text-align: center
-    p
-      font-size: 0.9em
-      text-align: center
-      color: #666
-      margin-bottom: 5px
-
-  form#register_form
-    margin: 0 auto
-    margin-top: 20px
-    //border: 1px solid #ccc
-    width: 500px
-    .field
-      clear: left
-      margin-top: 10px
-      .errorlist
-        +errorlist-style
-      label
-        float: left
-        margin-right: 16px
-        width: 110px
-        text-align: right
-        font-size: 0.9em
-        //Move the labels slightly down.
-        padding-top: 8px
-      input[type=text]
-        font-size: 1.0em
-        width: 350px
-        padding: 5px
-        //font-family: Georgia, Times, Times New Roman, sans-serif
-    button
-      display: block
-      margin-top: 20px
-      //Push button over from the right
-      margin-right: 10px
-      margin-left: auto
-      font-family: Georgia, Times, Times New Roman, sans-serif
-      font-size: 1.2em
-      padding-top: 5px
-      padding-bottom: 5px
-      width: 150px
-  #associate_helper
-    color: #999
-    margin-top: 25px
-    text-align: center
-    font-size: 0.9em
-    a
-      color: #555
-    small
-      display: block
-      font-size: 0.8em
-
-body#associate
-  #content
-    h2#catchphrase
-      font-size: 2.0em
-      letter-spacing: 0.03em
-      line-height: 1
-      margin-bottom: 10px 
-    p#catchphrase-helper
-      display: block
-      margin-bottom: 10px
-    #associated_logins
-      font-size: 0.9em
-      dl
-        margin-bottom: 10px
-        dt
-          float: left
-          width: 150px
-          text-align: right
-          margin-right: 10px
-          //Push down label for text input
-          margin-top: 5px
-        dd
-          input[type=text]
-            width: 400px
-            font-size: 0.9em
-            padding: 4px 5px
-          a
-            font-size: 0.7em
-    #add_login
-      text-align: center
-      margin-top: 15px
-      p
-        margin-bottom: 0
-      p.helper
-        font-size: 0.8em
-
-body#login, body#logged_out
-  //background: #ccc
+    +container
   #header, #footer
-    display: none
+    +column(!blueprint_grid_columns)
+  #sidebar
+    // One third of the grid columns, rounding down. With 24 cols, this is 8.
+    !sidebar_columns = floor(!blueprint_grid_columns / 3)
+    +column(!sidebar_columns)
   #content
-    #login_box
-      margin: 20px auto 40px
-      width: 420px
-      border: 10px solid #ccc
-      padding: 20px
-      text-align: center
-      +border-radius(10px)
-      h2
-        margin-bottom: 0
-        a
-          color: #333
-          text-decoration: none
-      p
-        margin: 10px 0
+    // Two thirds of the grid columns, rounding up.
+    // With 24 cols, this is 16.
+    !content_columns = ceil(2 * !blueprint_grid_columns / 3)
+    // true means it's the last column in the row
+    +column(!content_columns, true)
