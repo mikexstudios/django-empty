@@ -1,0 +1,12 @@
+Need to change 'app' to whatever your app name is in the following places:
+
+1. app/ dir.
+2. urls.py
+3. app/urls.py
+4. app/views.py
+5. app/templates/app/ dir.
+6. app/templates/app/home.html
+7. app/templates/django_rpx_plus/*.html
+
+For South, after you rename the app, need to run:
+./manage.py schemamigration appname --initial

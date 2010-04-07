@@ -1,0 +1,66 @@
+{% extends "app/base.html" %}
+{% load rpx %}
+
+{% block bodyid %}associate{% endblock %}
+{% block title %}Associate a new login - suppleText{% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.delete').click(function() {
+                var answer = confirm("Are you sure?")
+                if (answer) { return true; }
+                else { return false; };
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block header %}
+    <h1><a href="{% url home %}"><span class="supple">supple</span>Text</a></h1>
+{% endblock %}
+
+{% block content %}
+
+{% if messages %}
+<div id="messages">
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
+<h2 id="catchphrase">Manage associated logins</h2>
+<p id="catchphrase-helper">
+    You are currently a <strong>registered</strong> user. Here are the logins
+    you have associated with your suppleText account.
+</p>
+
+<div id="associated_logins">
+    {% for rpxdata in user_rpxdatas %}
+    <dl>
+        <dt>{{ rpxdata.provider }}:</dt>
+        <dd>
+            <input type="text" class="user_identifier" value="{{ rpxdata.identifier }}" /> 
+            {# Logically, checking != is bad. Should be > 1. But we don't have that tag #}
+            {% ifnotequal num_logins 1 %}
+            <a href="{% url delete-associated-login rpxdata.id %}" class="delete">(delete)</a>
+            {% endifnotequal %}
+        </dd>
+    </dl>
+    {% endfor %}
+</div>
+<div id="add_login">
+    <p>{% rpx_link "To add another login to your account, click here to sign in with a <em>different</em> login." extra rpx_response_path %}</p>
+    <p class="helper">NOTE: You may have to click the <strong>(not you?)</strong> link to see all account signin options.</p>
+</div>
+
+{% endblock %}
+
+{% block bodyend %}
+    {# We set the 'show_provider_list' flag so that user doesn't have to click (This isn't me) #}
+    {% rpx_script extra rpx_response_path 'show_provider_list' %}
+{% endblock %}
