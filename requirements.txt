@@ -1,0 +1,34 @@
+# pip requirements.txt file
+# See this file for sample syntax:
+# http://gist.github.com/192093
+# and also:
+# http://mathematism.com/2009/jul/30/presentation-pip-and-virtualenv/
+
+#Using django's trunk in preparation for django 1.2
+#Django == 1.1.1
+-e git://github.com/django/django.git#egg=django
+
+#Current version is: MySQL-python-1.2.3c1
+#pip seems to have problems installing from sourceforge. So here's a direct link:
+#http://downloads.sourceforge.net/project/mysql-python/mysql-python-test/1.2.3c1/MySQL-python-1.2.3c1.tar.gz?use_mirror=voxel
+MySQL-python
+
+#So many awesome things in this app to simplify django dev:
+django-annoying
+
+#django-rpx-plus (depends on django-picklefield, automatically installed):
+#django-picklefield==0.1
+#-e git://github.com/mikexstudios/django-rpx-plus.git#egg=django_rpx_plus
+
+#For easy database migrations!
+#South
+
+#Messaging/work queue (depends on amqplib, anyjson, billiard, carrot, importlib,
+#and python-dateutil).
+#celery
+
+#To make email field 254 char.
+#django_auth_longer_email
+
+#For maintenance mode
+#-e git://github.com/mikexstudios/django-fakewall.git#egg=django_fakewall
